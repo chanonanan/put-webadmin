@@ -1,0 +1,125 @@
+<div class="row">
+
+  <div [ngClass]="full.a ? 'col-md-12 col-sm-12 col-xs-12' : 'col-md-6 col-sm-12 col-xs-12'">
+    <mk-box header="Table 1" [isCollapsable]="false" [isRemovable]="false"
+      contentStyleClass="table-responsive">
+      <mk-box-header>
+        <div class="box-tools pull-right">
+            <button mat-icon-button class="mat-icon-button-nav" (click)="toggle('a')">
+                <mat-icon ><i class="fa fa-fw fa-arrows-alt"></i></mat-icon>
+              </button>
+        </div>
+      </mk-box-header>
+      <mk-box-content class="box-height">
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Username</th>
+              <th># of Logins</th>
+              <th>Bandwidth IN</th>
+              <th>Bandwidth Out</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let in of [1,2,3,4,5,6,7,8,9,10]">
+              <td>{{in}} </td>
+              <td>User{{in}}</td>
+              <td>40</td>
+              <td>-</td>
+              <td>-</td>
+            </tr>
+          </tbody>
+        </table>
+      </mk-box-content>
+
+    </mk-box>
+  </div>
+
+  <div [ngClass]="full.b ? 'col-md-12 col-sm-12 col-xs-12' : 'col-md-6 col-sm-12 col-xs-12'">
+    <mk-box header="Graph for table 1" [isCollapsable]="false" [isRemovable]="false"
+      contentStyleClass="table-responsive">
+      <mk-box-header>
+          <div class="box-tools pull-right">
+              <button mat-icon-button class="mat-icon-button-nav" (click)="toggle('b')">
+                  <mat-icon ><i class="fa fa-fw fa-arrows-alt"></i></mat-icon>
+                </button>
+          </div>
+        </mk-box-header>
+        <mk-box-content class="box-height">
+            <app-bar [data]=getData></app-bar>
+        </mk-box-content>
+    </mk-box>
+  </div>
+
+  <div [ngClass]="full.c ? 'col-md-12 col-sm-12 col-xs-12' : 'col-md-6 col-sm-12 col-xs-12'">
+    <mk-box header="Table 2" [isCollapsable]="false" [isRemovable]="false"
+      contentStyleClass="table-responsive">
+      <mk-box-header>
+          <div class="box-tools pull-right">
+              <button mat-icon-button class="mat-icon-button-nav" (click)="toggle('c')">
+                  <mat-icon ><i class="fa fa-fw fa-arrows-alt"></i></mat-icon>
+                </button>
+          </div>
+        </mk-box-header>
+        <mk-box-content class="box-height">
+          <table class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>Username</th>
+                <th># of Logins</th>
+                <th>Bandwidth IN</th>
+                <th>Bandwidth Out</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let in of [1,2,3,4,5,6,7,8,9,10]">
+                <td>{{in}} </td>
+                <td>User{{in}}</td>
+                <td>40</td>
+                <td>-</td>
+                <td>-</td>
+              </tr>
+            </tbody>
+          </table>
+        </mk-box-content>
+    </mk-box>
+  </div>
+  
+
+  <div [ngClass]="full.d ? 'col-md-12 col-sm-12 col-xs-12' : 'col-md-6 col-sm-12 col-xs-12'">
+    <mk-box header="Table 3" [isCollapsable]="false" [isRemovable]="false"
+      contentStyleClass="table-responsive">
+      <mk-box-header>
+          <div class="box-tools pull-right">
+              <button mat-icon-button class="mat-icon-button-nav" (click)="toggle('d')">
+                  <mat-icon ><i class="fa fa-fw fa-arrows-alt"></i></mat-icon>
+                </button>
+          </div>
+        </mk-box-header>
+        <mk-box-content class="box-height">
+          <table class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>Username</th>
+                <th># of Logins</th>
+                <th>Bandwidth IN</th>
+                <th>Bandwidth Out</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let in of [1,2,3,4,5,6,7,8,9,10]">
+                <td>{{in}} </td>
+                <td>User{{in}}</td>
+                <td>40</td>
+                <td>-</td>
+                <td>-</td>
+              </tr>
+            </tbody>
+          </table>
+        </mk-box-content>
+    </mk-box>
+  </div>
+</div>
