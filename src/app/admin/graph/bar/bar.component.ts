@@ -8,7 +8,7 @@ import { ApiResponse, Flow, Graph, GraphData } from '../../../model/apiResponse'
 })
 export class BarComponent implements OnInit, OnChanges {
 
-  @Input() data: GraphData;
+  @Input() data: any;
   @Input() name: string;
   chartOption:any;
   constructor() { }
@@ -18,39 +18,69 @@ export class BarComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges) {
     this.chartOption = {
-        color: ['#3398DB'],
-        tooltip : {
+        tooltip: {
             trigger: 'axis',
-            axisPointer : {
-                type : 'shadow'
+            axisPointer: {
+                type: 'cross',
+                crossStyle: {
+                    color: '#999'
+                }
             }
         },
-        grid: {
-            left: '3%',
-            right: '4%',
-            bottom: '3%',
-            containLabel: true
+        toolbox: {
+            feature: {
+                dataView: {show: true, readOnly: false},
+                magicType: {show: true, type: ['line', 'bar']},
+                restore: {show: true},
+                saveAsImage: {show: true}
+            }
         },
-        xAxis : [
+        legend: {
+            data:['Humid','Temp','RSSI']
+        },
+        xAxis: [
             {
-                type : 'category',
-                data : ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-                axisTick: {
-                    alignWithLabel: true
+                type: 'category',
+                data: this.data['xaxis'],
+                axisPointer: {
+                    type: 'shadow'
                 }
             }
         ],
-        yAxis : [
+        yAxis: [
             {
-                type : 'value'
+                type: 'value',
+                name: 'a',
+                axisLabel: {
+                    formatter: '{value}'
+                }
+            },
+            {
+                type: 'value',
+                name: 'b',
+
+                interval: 5,
+                axisLabel: {
+                    formatter: '{value}'
+                }
             }
         ],
-        series : [
+        series: [
             {
-                name:'直接访问',
+                name:'Humid',
                 type:'bar',
-                barWidth: '60%',
-                data:[10, 52, 200, 334, 390, 330, 220]
+                data: this.data['humid']
+            },
+            {
+                name:'Temp',
+                type:'bar',
+                data:this.data['temp']
+            },
+            {
+                name:'RSSI',
+                type:'line',
+                yAxisIndex: 1,
+                data:this.data['rssi']
             }
         ]
     };

@@ -9,27 +9,29 @@ import { DashboardService } from '../../service/dashboard.service';
 })
 export class DashboardComponent implements OnInit {
 
-  full = {
-    a: false,
-    b: false,
-    c: false,
-    d: false
-  }
+  data = {
+    rssi: [],
+    temp: [],
+    humid: [],
+    xaxis: [],
+  };
+  isLoading = true;
   constructor(
     private dashboardService: DashboardService
   ) { }
 
   ngOnInit() {
-    this.dashboardService.get(1543650978000,1543737378000).subscribe(res => {
-      let result: ApiResponse;
-      result = res as ApiResponse;
-      // get data
-    })
-  }
+    this.dashboardService.get().subscribe(res => {
 
-  toggle(element){
-    console.log(this.full[element],element)
-    this.full[element] = !this.full[element];
+      for(let i in res){
+        this.data.rssi.push(res[i]['rssi']);
+        this.data.temp.push(res[i]['temp']);
+        this.data.humid.push(res[i]['humid']);
+        this.data.xaxis.push(res[i]['datetime']);
+      }
+      console.log(this.data)
+      this.isLoading = false;
+    })
   }
 
 }

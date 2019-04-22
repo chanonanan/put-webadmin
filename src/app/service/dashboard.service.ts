@@ -12,7 +12,7 @@ export class DashboardService {
     return this.http.get(apiConst.TEST_WEBSTAT_URL);
   }
 
-  get(start,end) {
-    return this.http.get(apiConst.HOST + apiConst.WEB_URL + start + '/'+end);
+  get() {
+    return this.http.get(apiConst.HOST);
   }
 }
